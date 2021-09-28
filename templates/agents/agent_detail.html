@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Lead : {{lead}} {% endblock %}
+{% block content %}
+<a href="{% url 'agent_list' %}" class="btn btn-info btn-sm m-1">Go back</a>
+
+<h1 class="m-5 text-muted">
+    Agent detail
+</h1>
+<div class="jumbotron jumbotron-fluid m-5">
+    <div class="container">
+        <h1 class="display-4">{{agent.user}}</h1>
+        <p class="lead">{{agent.user.first_name }} {{agent.user.last_name }}</p>
+        <hr class="my-4">
+        <p>Agent :{{agent.user.email}}</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="{% url 'agent_update' agent.pk %}" role="button">Update</a>
+            <a class="btn btn-danger btn-lg" href="{% url 'agent_delete' agent.pk %}" role="button">Delete</a>
+        </p></div>
+</div>
+
+
+{% endblock %}

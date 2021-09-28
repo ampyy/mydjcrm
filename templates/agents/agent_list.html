@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="m-5">
+    <h1 class="text-muted">Agents</h1>
+    <a href="{% url 'agent_create' %}">Add Agent</a>
+</div>
+
+<div class="m-5">
+
+    <div class="row">
+        {% for agent in object_list %}
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <a href="#"><p class="card-text">{{agent.user  }}</p></a>
+                    <h5 class="card-title">{{agent.user.first_name }} {{agent.user.last_name }}</h5>
+                    <p class="card-text">{{agent.user.email  }}</p>
+                    <a class="btn btn-primary" href="{% url 'agent_detail' agent.pk %}">Detail</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}

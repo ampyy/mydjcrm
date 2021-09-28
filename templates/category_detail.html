@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Categories {% endblock %}
+
+{% block content %}
+
+<div class="m-5">
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Agent</th>
+        <th scope="col">Email id</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for lead in category.leads.all %}
+    <tr>
+
+        <th scope="row">{{ lead.first_name }}{{ lead.last_name }}</th>
+        <td>{{ lead.email  }}</td>
+        <td>{{ lead.agent.user.email  }}</td>
+        <td><a href="{% url  'category_update' lead.pk %}">Update</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %} Leads {% endblock %}
+{% block content %}
+<div class="m-5">
+    <h1 class="text-muted">Leads</h1>
+    {% if request.user.is_organisor %}
+    <a href="{% url 'lead_create' %}">Create a Lead</a>
+    {% endif %}
+</div>
+
+<div class="m-5">
+
+    <div class="row">
+        {% for lead in leads %}
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'lead_detail' lead.pk %}">{{ lead }}</a></h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a class="btn btn-primary" href="{% url 'lead_detail' lead.pk %}">Detail</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+
+<br>
+<hr>
+
+<div class="m-5">
+    <h4>Unassigned Leads</h4>
+    <div class="row">
+        {% for lead in unassigned_leads %}
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'lead_detail' lead.pk %}">{{ lead }}</a></h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a class="btn btn-primary" href="{% url 'assign_agent' lead.pk %}">Assign Agent</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

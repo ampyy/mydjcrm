@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Create a Lead{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<a class="btn btn-info btn-sm m-1" href="{% url 'lead_list' %}">Go back</a>
+<div class="m-5">
+<h1>Create Lead</h1>
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-primary" value="submit">
+</form>
+</div>
+{% endblock %}

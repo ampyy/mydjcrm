@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}CRM : Home{% endblock %}
+{% block content %}
+{% load static %}
+<section class="h-100">
+    <div class="position-absolute h-100 w-100" style="
+                    z-index: -1;
+                    background-image: url('../../assets/bg-img-placeholder.PNG');
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-size: cover;
+                    background-position: center;
+                "></div>
+    <div class="container h-100 py-5">
+        <div class="row h-100 justify-content-between align-items-center">
+            <div class="col-lg-5 h-50">
+                <div class="d-flex flex-column h-100 justify-content-between text-center text-lg-left">
+                    <h5>CRM management</h5>
+                    <h1 class="font-weight-bold">
+                        Manage All agents and leads in one go!!
+                    </h1>
+                    <h5 class="text-muted font-weight-normal">
+                        Login and start managing!
+                    </h5>
+                    <div class="">
+                        <div>
+                            <a href="{% url 'login' %}" class="btn btn btn-primary">Login</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 mt-3 mt-lg-0">
+                <img alt="" class="h-100 w-100" src="{% static 'images/download.png' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
